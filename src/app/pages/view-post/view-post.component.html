@@ -13,4 +13,29 @@
         </mat-card-content>
         <mat-card-actions><button (click)="likePost()" [ngStyle]="{background: 'white'}"><mat-icon>favorite</mat-icon><span class="like">{{postData.likecount}}</span></button></mat-card-actions>
     </mat-card>
+
+    <mat-card class="comment-card">
+        <mat-card-content>
+            <h4>Publish Your Comment</h4>
+        <div>
+            <form [formGroup]="commentForm">
+                <mat-form-field>
+                    <mat-label>Content</mat-label>
+                    <textarea formControlName="content">
+
+                    </textarea>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>PostedBY</mat-label>
+                    <input matInput formControlName="postedBy">
+                        
+                    
+                </mat-form-field>
+                <button class="btn-st" (click)="publishComment()">Publish Comment</button>
+                
+            </form>
+        </div>
+        </mat-card-content>
+    </mat-card>
 </div>
