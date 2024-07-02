@@ -1,0 +1,16 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<p>view-post works!</p>
+
+<div *ngIf="postData">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>{{postData.name}}</mat-card-title>
+                <mat-card-title>{{postData.postedBy}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            {{postData.content}}
+        </mat-card-content>
+        <mat-card-actions><button (click)="likePost()" [ngStyle]="{background: 'white'}"><mat-icon>favorite</mat-icon><span class="like">{{postData.likecount}}</span></button></mat-card-actions>
+    </mat-card>
+</div>

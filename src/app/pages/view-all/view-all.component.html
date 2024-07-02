@@ -1,0 +1,11 @@
+<p>view-all works</p>
+<div class="card-container" *ngFor="let item of allPosts">
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>{{item.name}}</mat-card-title>
+        <mat-card-subtitle>Posted By:{{item.postedBy}}</mat-card-subtitle>
+    </mat-card-header>
+
+    <button routerLink="/view-post/{{item.id}}">View Post</button>
+</mat-card>
+</div>
