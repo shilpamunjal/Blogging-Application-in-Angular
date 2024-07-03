@@ -7,7 +7,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon'; 
 import { MatCard } from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
-
+import { FormsModule } from '@angular/forms';
 import { MatCardContent } from '@angular/material/card';
 import { MatLabel } from '@angular/material/form-field';
 import { MatChipGrid } from '@angular/material/chips';
@@ -24,18 +24,20 @@ import { MatCardActions } from '@angular/material/card';
 import { provideHttpClient } from '@angular/common/http';
 import { ViewAllComponent } from './pages/view-all/view-all.component';
 import { ViewPostComponent } from './pages/view-post/view-post.component';
+import { SearchByNameComponent } from './pages/search-by-name/search-by-name.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CreatePostComponent,
     ViewAllComponent,
-    ViewPostComponent
+    ViewPostComponent,
+    SearchByNameComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-   
+   FormsModule,
      MatToolbarModule,
      MatIconModule,
      MatButtonModule,

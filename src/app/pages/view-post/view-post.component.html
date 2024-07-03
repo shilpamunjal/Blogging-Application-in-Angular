@@ -1,41 +1,49 @@
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
-<p>view-post works!</p>
+
 
 <div *ngIf="postData">
-    <mat-card>
-        <mat-card-header>
-            <mat-card-title>{{postData.name}}</mat-card-title>
-                <mat-card-title>{{postData.postedBy}}</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-            {{postData.content}}
-        </mat-card-content>
-        <mat-card-actions><button (click)="likePost()" [ngStyle]="{background: 'white'}"><mat-icon>favorite</mat-icon><span class="like">{{postData.likecount}}</span></button></mat-card-actions>
-    </mat-card>
+       
+    <span>{{postData.name}}</span>
+        <span class="postedBy">{{postData.postedBy}}</span>
 
-    <mat-card class="comment-card">
-        <mat-card-content>
-            <h4>Publish Your Comment</h4>
-        <div>
-            <form [formGroup]="commentForm">
-                <mat-form-field>
-                    <mat-label>Content</mat-label>
-                    <textarea formControlName="content">
+<span class="content">
+    {{postData.content}}
+</span>
+<button *[ngClass]="likes" (click)="likePost()" [ngStyle]="{background: 'white'}"><mat-icon>favorite</mat-icon><span class="like">{{postData.likecount}}</span></button>
 
-                    </textarea>
-                </mat-form-field>
 
-                <mat-form-field>
-                    <mat-label>PostedBY</mat-label>
-                    <input matInput formControlName="postedBy">
-                        
-                    
-                </mat-form-field>
-                <button class="btn-st" (click)="publishComment()">Publish Comment</button>
+<div class="comment-card">
+
+    <h4 class="publish">Publish Your Comment</h4>
+<div>
+    <form [formGroup]="commentForm">
+      
+            <label [ngStyle]="{marginRight: '40px'}">Content</label>
+            <textarea formControlName="content">
+
+            </textarea>
+        
+<br>
+        
+            <label [ngStyle]="{marginRight: '30px'}">Posted By</label>
+              <input formControlName="postedBy">
                 
-            </form>
-        </div>
-        </mat-card-content>
-    </mat-card>
+            
+      
+        <button class="btn-st" (click)="publishComment()">Publish Comment</button>
+        
+    </form>
 </div>
+
+
+</div>  
+
+<div  *ngFor="let item of comments">
+<div>
+
+<span>{{item.content}}</span>
+<span> Posted By:{{item.postedBy}}</span>
+
+
+</div>
+

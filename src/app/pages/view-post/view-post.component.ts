@@ -12,6 +12,7 @@ import { CommentService } from '../../service/comment.service';
 export class ViewPostComponent {
   postId=this.activatedroute.snapshot.params['id'];
   postData:any;
+  comments:any;
   commentForm!:FormGroup;
 
   constructor(private postservice:PostService,private activatedroute:ActivatedRoute,private fb:FormBuilder,private commentservice:CommentService){}
@@ -29,13 +30,25 @@ export class ViewPostComponent {
     const postedBy=this.commentForm.get('postedBy')?.value;
     const content=this.commentForm.get('content')?.value;
     console.log(content);
-    this.commentservice.createComment(this.postId,postedBy,content).subscribe(res=>console.log(res));
+    this.commentservice.createComment(this.postId,postedBy,content).subscribe(res=>{this.getCommentsByPost();})
+  }
+
+  getCommentsByPost(){
+    
+    this.commentservice.getAllCommentsByPostId(this.postId).subscribe(res=>{
+      
+      this.comments=res;
+      console.log(this.comments[0].postedBy);
+      console.log(this.comments[0].content);
+      console.log(this.comments[0].createdAt);
+    })
   }
   getPostById(){
   this.postservice.getPostById(this.postId).subscribe(res =>{
     
     this.postData=res;
-    console.log(this.postData);
+   
+    this.getCommentsByPost();
   })
     
   }

@@ -18,7 +18,8 @@ export class CommentService {
   }
 
   getAllCommentsByPostId(postid:number):Observable<any>{
-    return this.http.get(BASIC_URL+`api/comments/{postid}`);
+    console.log("comment service"+postid);
+    return this.http.get(BASIC_URL+`api/comments/${postid}`);
 
   }
 }

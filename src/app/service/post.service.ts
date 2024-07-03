@@ -31,4 +31,12 @@ export class PostService {
     return this.http.put(BASIC_URL+`api/post/${postId}/like`,{});
     
   }
+
+  searchByName(name:String):Observable<any>{
+    console.log("hi service file");
+    return this.http.get(BASIC_URL+`api/post/search/${name}`);
+   
+  }
+
+
 }

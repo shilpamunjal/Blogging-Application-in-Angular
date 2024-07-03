@@ -1,0 +1,16 @@
+<p>search-by-name works!</p>
+<div class="search-form">
+    <label>Enter Keyword to search</label>
+    <input type="text" [(ngModel)]="name">
+    <button (click)="searchByName()"><mat-icon>search</mat-icon></button>
+</div>
+<div class="search-empty" *ngIf="results.length==0">
+    <span>Nothing to see here</span>
+</div>
+
+<div class="card-container" *ngFor="let item of results">
+
+    
+    <span>{{item.name}}</span>
+    <span>{{item.content}}</span>
+</div>
