@@ -52,7 +52,7 @@ tags:string[]=[];
   
     const data=this.postform.value;
     
-    this.postService.createNewPost(data).subscribe(res=>console.log("Hi"));
+    this.postService.createNewPost(data).subscribe(res=>console.log("Create Post Method"));
     
     
   }
