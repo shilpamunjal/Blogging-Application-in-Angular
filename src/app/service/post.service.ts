@@ -11,18 +11,18 @@ export class PostService {
   constructor(private http:HttpClient) { }
 
   createNewPost(data:any):Observable<any>{
-    console.log("hi service file");
+    
     return this.http.post(BASIC_URL+`api/post`,data);
    
   }
 
  getAllPosts():Observable<any>{
-    console.log("hi service file");
+  
     return this.http.get(BASIC_URL+`api/post`);
    
   }
   getPostById(postId:any):Observable<any>{
-    console.log("hi service file");
+   
     return this.http.get(BASIC_URL+`api/post/${postId}`);
    
   }
@@ -33,7 +33,7 @@ export class PostService {
   }
 
   searchByName(name:String):Observable<any>{
-    console.log("hi service file");
+   
     return this.http.get(BASIC_URL+`api/post/search/${name}`);
    
   }
